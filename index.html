@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <title>
-WWW : THE WORLD AFTER ZERO
+WWW : THE LAST PAGE
 </title>
 
 
@@ -19,22 +19,23 @@ font-family:"Segoe UI",sans-serif;
 }
 
 
-
 body{
 
 margin:0;
 
+height:100vh;
+
 background:#000;
 
 color:white;
-
-height:100vh;
 
 overflow:hidden;
 
 }
 
 
+
+/* 전체 */
 
 #app{
 
@@ -44,182 +45,51 @@ height:100vh;
 
 position:relative;
 
-overflow:hidden;
-
 }
 
 
 
 
+/* 장면 */
 
-/* 공통 화면 */
+.room{
 
 
-.scene{
+display:none;
+
 
 position:absolute;
 
+
 inset:0;
 
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-flex-direction:column;
-
-opacity:0;
-
-pointer-events:none;
-
-transition:2s;
-
 
 }
 
 
 
-.scene.active{
-
-opacity:1;
-
-pointer-events:auto;
-
-
-}
-
-
-
-
-
-
-/* =================
-
-BOOT
-
-================= */
-
-
-#boot{
-
-
-background:#000;
-
-
-}
-
-
-.bootText{
-
-
-font-size:20px;
-
-
-letter-spacing:8px;
-
-
-color:#aaa;
-
-
-}
-
-
-
-.percent{
-
-
-font-size:60px;
-
-
-margin-top:30px;
-
-
-letter-spacing:5px;
-
-
-}
-
-
-
-
-.loading{
-
-
-width:400px;
-
-
-height:2px;
-
-
-background:#222;
-
-
-margin-top:40px;
-
-
-}
-
-
-
-.loading span{
+.room.active{
 
 
 display:block;
 
 
-height:100%;
-
-
-width:0;
-
-
-background:white;
-
-
-animation:
-
-load 6s forwards;
-
-
-}
-
-
-
-
-@keyframes load{
-
-
-to{
-
-width:100%;
-
-}
-
 }
 
 
 
 
 
+/* 배경 */
 
-/* =================
-
-ROOM
-
-================= */
-
-
-
-#room{
+.archive{
 
 
 background:
 
-
 radial-gradient(
 
-circle,
+circle at center,
 
 #1e293b,
 
@@ -235,32 +105,56 @@ circle,
 
 
 
-.roomTitle{
+
+/* 타이틀 */
 
 
-font-size:55px;
+.header{
 
 
-letter-spacing:15px;
+position:absolute;
+
+
+top:40px;
+
+
+left:50%;
+
+
+transform:translateX(-50%);
+
+
+text-align:center;
+
+
+}
+
+
+.header h1{
+
+
+font-size:45px;
+
+
+letter-spacing:12px;
+
+
+color:#67e8f9;
 
 
 }
 
 
 
-
-.roomSub{
-
-
-margin-top:20px;
-
-
-color:#94a3b8;
+.header p{
 
 
 letter-spacing:5px;
 
 
+color:#94a3b8;
+
+
 }
 
 
@@ -268,40 +162,80 @@ letter-spacing:5px;
 
 
 
-/* 문 */
+/* 오브젝트 공통 */
 
 
-.door{
+.object{
 
 
-margin-top:70px;
+position:absolute;
 
 
-width:260px;
+cursor:pointer;
 
 
-height:400px;
+transition:.5s;
 
 
-border:
+}
 
-2px solid rgba(255,255,255,.5);
+
+
+.object:hover{
+
+
+filter:
+
+drop-shadow(
+
+0 0 25px #67e8f9
+
+);
+
+
+transform:scale(1.05);
+
+
+}
+
+
+
+
+
+
+/* 파일 */
+
+
+.file{
+
+
+left:15%;
+
+
+bottom:25%;
+
+
+width:130px;
+
+
+height:170px;
 
 
 background:
 
+
 linear-gradient(
 
-90deg,
+135deg,
 
-#111,
+#e2e8f0,
 
-#334155,
-
-#111
+#64748b
 
 );
 
+
+color:#020617;
 
 
 display:flex;
@@ -313,37 +247,7 @@ align-items:center;
 justify-content:center;
 
 
-
-cursor:pointer;
-
-
-transition:2s;
-
-
-}
-
-
-
-.door:hover{
-
-
-box-shadow:
-
-0 0 80px white;
-
-
-}
-
-
-
-.door.open{
-
-
-transform:
-
-perspective(800px)
-
-rotateY(-70deg);
+font-weight:bold;
 
 
 }
@@ -351,17 +255,143 @@ rotateY(-70deg);
 
 
 
+/* 액자 */
 
 
-.doorText{
+.frame{
 
 
-letter-spacing:4px;
+right:18%;
+
+
+bottom:25%;
+
+
+width:200px;
+
+
+height:150px;
+
+
+border:
+
+
+3px solid #94a3b8;
+
+
+background:#111827;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
 
 
 }
 
 
+
+
+
+/* 문 */
+
+
+.door{
+
+
+left:50%;
+
+
+bottom:0;
+
+
+transform:translateX(-50%);
+
+
+width:280px;
+
+
+height:420px;
+
+
+background:
+
+
+linear-gradient(
+
+90deg,
+
+#111827,
+
+#475569,
+
+#111827
+
+);
+
+
+border:
+
+2px solid #67e8f9;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+letter-spacing:5px;
+
+
+}
+
+
+
+
+
+/* 정보창 */
+
+
+.info{
+
+
+position:absolute;
+
+
+bottom:30px;
+
+
+left:50%;
+
+
+transform:translateX(-50%);
+
+
+padding:15px 40px;
+
+
+border:
+
+1px solid #67e8f9;
+
+
+border-radius:30px;
+
+
+background:
+
+rgba(0,0,0,.5);
+
+
+}
 
 
 
@@ -376,129 +406,26 @@ letter-spacing:4px;
 
 
 
-<!-- =================
-BOOT
-================= -->
+<!-- =====================
+MAIN ARCHIVE ROOM
+===================== -->
 
-<div class="scene active" id="boot">
 
+<div class="room archive active" id="archiveRoom">
 
-<div class="bootText">
 
-WORLD WIDE WEB SYSTEM
 
-</div>
+<div class="header">
 
+<h1>
 
-<div class="percent" id="percent">
+WWW ARCHIVE
 
-00%
+</h1>
 
-</div>
+<p>
 
-
-
-<div class="loading">
-
-<span></span>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- =================
-ROOM
-================= -->
-
-
-<div class="scene" id="room">
-
-
-<div class="roomTitle">
-
-UNKNOWN ROOM
-
-</div>
-
-
-
-<div class="roomSub">
-
-FINAL DATA LOCATION
-
-</div>
-
-
-
-
-
-<div class="door" onclick="openDoor()">
-
-
-
-<div class="doorText">
-
-OPEN
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- =================
-CORE ROOM
-================= -->
-
-
-<div class="scene" id="coreRoom">
-
-
-<div class="coreTitle">
-
-WWW FINAL CORE
-
-</div>
-
-
-
-<div class="core">
-
-
-<div class="coreCircle">
-
-
-◎
-
-
-</div>
-
-
-
-<p id="coreText">
-
-SYSTEM OFFLINE
+THE LAST PAGE / UNKNOWN AREA
 
 </p>
 
@@ -509,88 +436,40 @@ SYSTEM OFFLINE
 
 
 
-</div>
 
 
+<!-- ERROR FILE -->
 
 
+<div class="object file" onclick="openFile()">
 
 
-
-
-
-<!-- =================
-TIMELINE
-================= -->
-
-
-<div class="scene" id="timeline">
-
-
-<div class="coreTitle">
-
-WORLD TIMELINE
-
-</div>
-
-
-
-
-<div class="timelineBox">
-
-
-<div>
-
-2025
+ERROR
 
 <br>
 
-ERROR FOUND
+FILE
+
 
 </div>
 
 
 
-<div>
 
-2026
+
+
+
+<!-- MEMORY FRAME -->
+
+
+<div class="object frame" onclick="openFrame()">
+
+
+MEMORY
 
 <br>
 
-WWW CREATED
-
-</div>
-
-
-
-<div>
-
-2030
-
-<br>
-
-MEMORY LOST
-
-</div>
-
-
-
-
-<div>
-
-2099
-
-<br>
-
-FINAL DATA FOUND
-
-</div>
-
-
-
-</div>
-
-
+FRAME
 
 
 </div>
@@ -601,231 +480,174 @@ FINAL DATA FOUND
 
 
 
+<!-- FINAL DOOR -->
 
 
-<style>
+<div class="object door" onclick="openDoor()">
 
 
 
-/* CORE ROOM */
+LOCKED
 
 
-#coreRoom{
-
-
-background:
-
-
-radial-gradient(
-
-circle,
-
-#0f172a,
-
-#000
-
-);
-
-
-}
+</div>
 
 
 
 
-.coreTitle{
-
-
-font-size:45px;
-
-
-letter-spacing:12px;
-
-
-}
 
 
 
-
-.core{
-
-
-margin-top:70px;
+<div class="info" id="info">
 
 
-text-align:center;
+SEARCH THE ARCHIVE
 
 
-cursor:pointer;
-
-
-}
+</div>
 
 
 
-.coreCircle{
 
 
-width:250px;
+
+</div>
 
 
-height:250px;
 
 
-border-radius:50%;
 
 
-border:
-
-2px solid #67e8f9;
 
 
-display:flex;
 
+<!-- POPUP -->
+
+
+<div id="popup"
+
+style="
+
+display:none;
+
+position:absolute;
+
+inset:0;
+
+background:rgba(0,0,0,.85);
 
 align-items:center;
 
-
 justify-content:center;
 
+flex-direction:column;
 
+text-align:center;
 
-font-size:80px;
+z-index:10;
 
+">
 
 
-color:#67e8f9;
 
+<h1 id="popupTitle">
 
+</h1>
 
-box-shadow:
 
 
-0 0 80px #67e8f9,
+<p id="popupText"
 
+style="
 
-inset 0 0 50px #67e8f9;
+font-size:20px;
 
+line-height:2;
 
+">
 
-animation:
+</p>
 
 
-rotate 8s linear infinite;
 
 
-}
+<button onclick="closePopup()"
 
+style="
 
+margin-top:30px;
 
+padding:15px 40px;
 
-@keyframes rotate{
+background:none;
 
+border:1px solid white;
 
-100%{
+border-radius:30px;
 
+color:white;
 
-transform:rotate(360deg);
+cursor:pointer;
 
+">
 
-}
 
+CLOSE
 
-}
 
+</button>
 
 
 
+</div>
 
 
-#coreText{
 
 
-margin-top:40px;
 
 
-letter-spacing:5px;
 
 
-color:#cbd5e1;
 
+<!-- LOG -->
 
-}
 
+<div style="
 
+position:absolute;
 
+top:30px;
 
+right:30px;
 
+border:1px solid #334155;
 
-/* TIMELINE */
+padding:20px;
 
+background:rgba(0,0,0,.4);
 
-#timeline{
+">
 
 
-background:
 
+<h3>
 
-linear-gradient(
+DISCOVERED DATA
 
-180deg,
+</h3>
 
-#020617,
 
-#111827
+<div id="log">
 
-);
 
+없음
 
-}
 
+</div>
 
 
 
-
-.timelineBox{
-
-
-margin-top:50px;
-
-
-width:500px;
-
-
-}
-
-
-
-.timelineBox div{
-
-
-padding:25px;
-
-
-margin:15px;
-
-
-border-left:
-
-
-2px solid #67e8f9;
-
-
-background:
-
-
-rgba(255,255,255,.05);
-
-
-letter-spacing:4px;
-
-
-}
-
-
-
-
-
-</style>
+</div>
 
 
 
@@ -838,33 +660,133 @@ letter-spacing:4px;
 <script>
 
 
-let doorOpened=false;
+
+let data=
+
+JSON.parse(
+
+localStorage.getItem("WWW_DATA")
+
+)
+
+||
+
+[];
+
+
+
+function saveData(item){
+
+
+
+if(!data.includes(item)){
+
+
+data.push(item);
+
+
+localStorage.setItem(
+
+"WWW_DATA",
+
+JSON.stringify(data)
+
+);
+
+
+}
+
+
+
+updateLog();
+
+
+}
 
 
 
 
 
-function sceneChange(id){
 
 
-document
-
-.querySelectorAll(".scene")
-
-.forEach(s=>{
+function updateLog(){
 
 
-s.classList.remove("active");
+
+let log=document.getElementById("log");
 
 
-});
+
+if(data.length===0){
 
 
-document
+log.innerHTML="없음";
 
-.getElementById(id)
 
-.classList.add("active");
+return;
+
+
+}
+
+
+
+log.innerHTML=
+
+data.join("<br>");
+
+
+
+}
+
+
+
+updateLog();
+
+
+
+
+
+
+
+
+
+function popup(title,text){
+
+
+
+document.getElementById("popupTitle")
+
+.innerHTML=title;
+
+
+
+document.getElementById("popupText")
+
+.innerHTML=text.replace(/\n/g,"<br>");
+
+
+
+document.getElementById("popup")
+
+.style.display="flex";
+
+
+}
+
+
+
+
+
+
+
+
+function closePopup(){
+
+
+
+document.getElementById("popup")
+
+.style.display="none";
 
 
 }
@@ -877,41 +799,44 @@ document
 
 
 
-// 부팅
+
+// 파일 발견
 
 
-let p=0;
-
-
-let bootTimer=setInterval(()=>{
-
-
-p++;
-
-
-document.getElementById("percent")
-
-.innerHTML=
-
-p+"%";
+function openFile(){
 
 
 
-if(p>=100){
+saveData("ERROR FILE");
+
+
+popup(
+
+"ERROR FILE FOUND",
+
+`
+
+STATUS :
+
+SOLVED
 
 
 
-clearInterval(bootTimer);
+첫 번째 오류는
+
+실수가 아니었다.
 
 
 
-setTimeout(()=>{
+WWW SYSTEM은
 
+처음부터 이 기록을
 
-sceneChange("room");
+남기고 있었다.
 
+`
 
-},1000);
+);
 
 
 
@@ -919,7 +844,49 @@ sceneChange("room");
 
 
 
-},60);
+
+
+
+
+
+
+// 기억 발견
+
+
+function openFrame(){
+
+
+
+saveData("MEMORY FRAME");
+
+
+popup(
+
+"MEMORY FRAME 001",
+
+`
+
+A MEMORY
+
+THAT SHOULD NOT EXIST.
+
+
+
+처음 만들어진 순간.
+
+
+
+누군가는 이 장면을
+
+기억하고 있었다.
+
+`
+
+);
+
+
+
+}
 
 
 
@@ -929,87 +896,51 @@ sceneChange("room");
 
 
 
-// 문 열기
-
+// 문
 
 
 function openDoor(){
 
 
 
-if(doorOpened)
+if(
 
-return;
+data.includes("ERROR FILE")
 
+&&
 
+data.includes("MEMORY FRAME")
 
-doorOpened=true;
-
-
-
-document.querySelector(".door")
-
-.classList.add("open");
+){
 
 
+saveData("FINAL DOOR");
 
 
-setTimeout(()=>{
+popup(
 
+"DOOR UNLOCKED",
 
-sceneChange("coreRoom");
+`
 
-
-},1800);
+FINAL DATA ACCESS AVAILABLE.
 
 
 
-}
+문이 열렸습니다.
 
 
 
+`
 
-
-
-
-
-
-// CORE 클릭
-
-
-
-document.querySelector(".core")
-
-.onclick=function(){
-
-
-
-document.getElementById("coreText")
-
-.innerHTML=
-
-"DATA RESTORING...";
+);
 
 
 
 setTimeout(()=>{
 
 
-document.getElementById("coreText")
-
-.innerHTML=
-
-"FINAL MEMORY RESTORED";
-
-
-setTimeout(()=>{
-
-
-sceneChange("timeline");
-
-
-},2500);
-
+enterFinalRoom();
 
 
 },2000);
@@ -1018,403 +949,253 @@ sceneChange("timeline");
 
 }
 
+else{
 
+
+popup(
+
+"LOCKED",
+
+`
+
+REQUIRED DATA:
+
+
+
+ERROR FILE
+
++
+
+MEMORY FRAME
+
+
+
+먼저 기록을 찾아야 합니다.
+
+`
+
+);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+function enterFinalRoom(){
+
+
+
+document.getElementById(
+
+"info"
+
+).innerHTML=
+
+"FINAL AREA CONNECTING...";
+
+
+
+}
 
 
 
 </script>
-<style>
+<!-- =====================
+FINAL CORE ROOM
+===================== -->
 
 
-/* =====================
-ALBUM DATA
-===================== */
+<div class="room" id="coreRoom">
 
 
-#albumScene{
+<div class="header">
 
 
-background:
+<h1>
 
-radial-gradient(
+WWW FINAL CORE
 
-circle,
+</h1>
 
-#312e81,
 
-#020617 70%
+<p>
 
-);
+MEMORY RESTORATION SYSTEM
 
+</p>
 
-}
-
-
-
-
-.albumTitle{
-
-
-font-size:50px;
-
-
-letter-spacing:12px;
-
-
-}
-
-
-
-
-.albumCore{
-
-
-margin-top:50px;
-
-
-width:300px;
-
-
-height:300px;
-
-
-border-radius:20px;
-
-
-border:
-
-1px solid #67e8f9;
-
-
-background:
-
-
-linear-gradient(
-
-135deg,
-
-rgba(255,255,255,.15),
-
-rgba(103,232,249,.05)
-
-);
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-text-align:center;
-
-
-font-size:35px;
-
-
-letter-spacing:8px;
-
-
-box-shadow:
-
-
-0 0 70px rgba(103,232,249,.5);
-
-
-transform-style:preserve-3d;
-
-
-animation:
-
-
-albumFloat 5s infinite;
-
-
-}
-
-
-
-@keyframes albumFloat{
-
-
-50%{
-
-
-transform:
-
-translateY(-20px)
-
-rotateY(15deg);
-
-
-}
-
-
-}
-
-
-
-
-
-
-.trackBox{
-
-
-margin-top:50px;
-
-
-display:flex;
-
-
-gap:20px;
-
-
-}
-
-
-
-.track{
-
-
-width:140px;
-
-
-height:60px;
-
-
-border:
-
-1px solid rgba(255,255,255,.4);
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-letter-spacing:2px;
-
-
-background:
-
-rgba(255,255,255,.05);
-
-
-opacity:0;
-
-
-animation:
-
-trackShow 1s forwards;
-
-
-}
-
-
-
-
-.track:nth-child(1){
-
-animation-delay:.5s;
-
-}
-
-.track:nth-child(2){
-
-animation-delay:1s;
-
-}
-
-.track:nth-child(3){
-
-animation-delay:1.5s;
-
-}
-
-.track:nth-child(4){
-
-animation-delay:2s;
-
-}
-
-.track:nth-child(5){
-
-animation-delay:2.5s;
-
-}
-
-
-
-
-@keyframes trackShow{
-
-
-to{
-
-opacity:1;
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-/* MEMBERS */
-
-
-.memberArea{
-
-
-margin-top:60px;
-
-
-display:flex;
-
-
-gap:35px;
-
-
-}
-
-
-
-.member{
-
-
-width:120px;
-
-
-height:160px;
-
-
-border:
-
-1px solid #67e8f9;
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-background:
-
-rgba(255,255,255,.05);
-
-
-position:relative;
-
-
-overflow:hidden;
-
-
-}
-
-
-
-.member:before{
-
-
-content:"";
-
-
-position:absolute;
-
-
-inset:0;
-
-
-background:
-
-linear-gradient(
-
-transparent,
-
-rgba(103,232,249,.3),
-
-transparent
-
-);
-
-
-animation:
-
-scan 2s infinite;
-
-
-}
-
-
-
-
-
-@keyframes scan{
-
-
-from{
-
-transform:translateY(-200%);
-
-}
-
-
-
-to{
-
-transform:translateY(200%);
-
-}
-
-
-}
-
-
-
-</style>
-
-
-
-
-
-
-
-
-
-<!-- ALBUM SCENE -->
-
-
-<div class="scene" id="albumScene">
-
-
-
-<div class="albumTitle">
-
-DEBUT ALBUM DATA
 
 </div>
 
 
 
 
-<div class="albumCore">
+
+<div class="coreObject" onclick="restoreCore()">
+
+
+◎
+
+
+</div>
+
+
+
+
+<div id="coreStatus"
+
+style="
+
+position:absolute;
+
+top:70%;
+
+width:100%;
+
+text-align:center;
+
+letter-spacing:5px;
+
+">
+
+
+SYSTEM OFFLINE
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- =====================
+TIME GATE
+===================== -->
+
+
+<div class="room" id="timeRoom">
+
+
+<div class="header">
+
+
+<h1>
+
+TIME GATE
+
+</h1>
+
+
+<p>
+
+TEMPORAL ARCHIVE
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="timeBox">
+
+
+<button onclick="travel(2025)">
+
+2025
+
+</button>
+
+
+<button onclick="travel(2030)">
+
+2030
+
+</button>
+
+
+
+<button onclick="travel(2099)">
+
+2099
+
+</button>
+
+
+
+</div>
+
+
+
+
+<div id="timeResult">
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================
+ALBUM ROOM
+===================== -->
+
+
+<div class="room" id="albumRoom">
+
+
+<div class="header">
+
+
+<h1>
+
+DEBUT ALBUM
+
+</h1>
+
+
+<p>
+
+THE FIRST PAGE
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="albumCard">
 
 
 WORLD
@@ -1435,43 +1216,31 @@ WEB
 
 
 
+<div class="tracks">
 
-<div class="trackBox">
 
+01. BEGIN
 
-<div class="track">
+<br>
 
-01 BEGIN
+02. SIGNAL
+
+<br>
+
+03. MEMORY
+
+<br>
+
+04. FUTURE
+
+<br>
+
+05. FIRST PAGE
+
 
 </div>
 
 
-<div class="track">
-
-02 SIGNAL
-
-</div>
-
-
-<div class="track">
-
-03 MEMORY
-
-</div>
-
-
-<div class="track">
-
-04 FUTURE
-
-</div>
-
-
-<div class="track">
-
-05 FIRST PAGE
-
-</div>
 
 
 
@@ -1484,17 +1253,49 @@ WEB
 
 
 
-<div class="memberArea">
+
+<!-- =====================
+MEMBER ROOM
+===================== -->
 
 
-<div class="member">
+<div class="room" id="memberRoom">
+
+
+<div class="header">
+
+
+<h1>
+
+MEMBER ARCHIVE
+
+</h1>
+
+
+<p>
+
+IDENTITY DATA
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="members">
+
+
+<div>
 
 MEMBER 01
 
 </div>
 
 
-<div class="member">
+<div>
 
 MEMBER 02
 
@@ -1502,7 +1303,7 @@ MEMBER 02
 
 
 
-<div class="member">
+<div>
 
 MEMBER 03
 
@@ -1510,13 +1311,17 @@ MEMBER 03
 
 
 
-<div class="member">
+<div>
 
 MEMBER 04
 
 </div>
 
 
+</div>
+
+
+
 
 </div>
 
@@ -1525,7 +1330,370 @@ MEMBER 04
 
 
 
-</div>
+
+
+
+<style>
+
+
+/* CORE */
+
+
+#coreRoom{
+
+
+background:
+
+radial-gradient(
+
+circle,
+
+#0f172a,
+
+#000
+
+);
+
+
+}
+
+
+
+.coreObject{
+
+
+margin-top:100px;
+
+
+width:260px;
+
+
+height:260px;
+
+
+border-radius:50%;
+
+
+border:
+
+2px solid #67e8f9;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+font-size:100px;
+
+
+color:#67e8f9;
+
+
+cursor:pointer;
+
+
+box-shadow:
+
+
+0 0 100px #67e8f9;
+
+
+animation:
+
+coreSpin 8s infinite linear;
+
+
+}
+
+
+
+
+@keyframes coreSpin{
+
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+
+}
+
+
+
+
+
+
+/* TIME */
+
+
+#timeRoom{
+
+
+background:
+
+
+linear-gradient(
+
+#020617,
+
+#111827
+
+);
+
+
+}
+
+
+
+
+.timeBox{
+
+
+margin-top:80px;
+
+
+display:flex;
+
+
+gap:20px;
+
+
+}
+
+
+
+.timeBox button{
+
+
+padding:20px 40px;
+
+
+background:none;
+
+
+border:
+
+1px solid #67e8f9;
+
+
+color:white;
+
+
+cursor:pointer;
+
+
+border-radius:30px;
+
+
+}
+
+
+
+#timeResult{
+
+
+margin-top:50px;
+
+
+font-size:22px;
+
+
+letter-spacing:5px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ALBUM */
+
+
+#albumRoom{
+
+
+background:
+
+radial-gradient(
+
+circle,
+
+#312e81,
+
+#020617
+
+);
+
+
+}
+
+
+
+
+
+.albumCard{
+
+
+margin-top:70px;
+
+
+width:280px;
+
+
+height:280px;
+
+
+border:
+
+1px solid #67e8f9;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+text-align:center;
+
+
+font-size:40px;
+
+
+letter-spacing:10px;
+
+
+box-shadow:
+
+
+0 0 80px #67e8f9;
+
+
+animation:
+
+albumMove 5s infinite;
+
+
+}
+
+
+
+
+
+@keyframes albumMove{
+
+
+50%{
+
+transform:translateY(-20px)
+
+rotateY(20deg);
+
+}
+
+
+}
+
+
+
+
+.tracks{
+
+
+margin-top:50px;
+
+
+line-height:2;
+
+
+letter-spacing:4px;
+
+
+}
+
+
+
+
+
+
+/* MEMBERS */
+
+
+#memberRoom{
+
+
+background:#020617;
+
+
+}
+
+
+
+
+.members{
+
+
+margin-top:80px;
+
+
+display:flex;
+
+
+gap:30px;
+
+
+}
+
+
+
+.members div{
+
+
+width:130px;
+
+
+height:180px;
+
+
+border:
+
+1px solid #67e8f9;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+}
+
+
+
+
+</style>
 
 
 
@@ -1538,100 +1706,332 @@ MEMBER 04
 <script>
 
 
-// 타임라인 이후 앨범 공개
 
-
-setTimeout(()=>{
-
-
-sceneChange("albumScene");
-
-
-},8000);
+function changeRoom(id){
 
 
 
-</script>
-<style>
+document
+
+.querySelectorAll(".room")
+
+.forEach(r=>{
 
 
-/* =====================
-FINAL ENDING
-===================== */
+r.classList.remove("active");
 
 
-#ending{
+});
 
 
-background:#000;
+
+document
+
+.getElementById(id)
+
+.classList.add("active");
+
 
 
 }
 
 
 
-.finalFlash{
+
+
+
+
+
+
+
+// CORE 복구
+
+
+
+function restoreCore(){
+
+
+
+document.getElementById("coreStatus")
+
+.innerHTML=
+
+"RESTORING MEMORY DATA...";
+
+
+
+saveData("FINAL CORE");
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("coreStatus")
+
+.innerHTML=
+
+"TIME GATE AVAILABLE";
+
+
+saveData("TIME GATE");
+
+
+
+},3000);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// 시간 이동
+
+
+
+function travel(year){
+
+
+
+let result="";
+
+
+
+if(year===2025){
+
+
+result=
+
+"ORIGIN FOUND : WWW WAS CREATED";
+
+
+}
+
+
+
+if(year===2030){
+
+
+result=
+
+"WARNING : MEMORY LOST";
+
+
+}
+
+
+
+if(year===2099){
+
+
+result=
+
+"FINAL DATA FOUND";
+
+
+saveData("2099 DATA");
+
+
+}
+
+
+
+
+
+document.getElementById("timeResult")
+
+.innerHTML=result;
+
+
+
+}
+
+
+
+
+
+
+
+</script>
+<!-- =====================
+FINAL REVEAL ROOM
+===================== -->
+
+
+<div class="room" id="revealRoom">
+
+
+<div class="revealLight"></div>
+
+
+<div class="revealLogo">
+
+WWW
+
+</div>
+
+
+
+<div class="revealText">
+
+
+DEBUT ALBUM
+
+
+<br><br>
+
+
+THE FIRST PAGE
+
+
+<br><br>
+
+
+2026
+
+
+</div>
+
+
+
+
+
+<div class="explorerCard" id="explorer">
+
+
+</div>
+
+
+
+
+
+<div class="secret404" onclick="openSecret()">
+
+
+404
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<style>
+
+
+/* FINAL */
+
+
+#revealRoom{
+
+
+background:
+
+
+radial-gradient(
+
+circle,
+
+#ffffff,
+
+#93c5fd 10%,
+
+#020617 55%
+
+);
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+.revealLight{
 
 
 position:absolute;
 
 
-width:120px;
+width:100px;
 
 
-height:120px;
-
-
-border-radius:50%;
+height:100px;
 
 
 background:white;
 
 
-box-shadow:
+border-radius:50%;
 
+
+box-shadow:
 
 0 0 200px white;
 
 
 animation:
 
-flashOpen 4s forwards;
+lightBurst 4s forwards;
 
 
 }
 
 
 
-@keyframes flashOpen{
+
+
+@keyframes lightBurst{
 
 
 0%{
 
+
 transform:scale(0);
 
-opacity:1;
 
 }
 
 
 100%{
 
-transform:scale(25);
+
+transform:scale(30);
+
 
 opacity:0;
 
-}
-
 
 }
 
 
+}
 
 
 
 
-.finalLogo{
+
+.revealLogo{
 
 
 font-size:150px;
@@ -1645,7 +2045,7 @@ opacity:0;
 
 animation:
 
-finalLogo 3s 2s forwards;
+showLogo 3s 2s forwards;
 
 
 }
@@ -1653,23 +2053,7 @@ finalLogo 3s 2s forwards;
 
 
 
-
-@keyframes finalLogo{
-
-
-from{
-
-
-opacity:0;
-
-
-transform:
-
-translateY(80px);
-
-
-}
-
+@keyframes showLogo{
 
 
 to{
@@ -1678,11 +2062,6 @@ to{
 opacity:1;
 
 
-transform:
-
-translateY(0);
-
-
 }
 
 
@@ -1693,8 +2072,7 @@ translateY(0);
 
 
 
-
-.finalText{
+.revealText{
 
 
 margin-top:40px;
@@ -1706,30 +2084,27 @@ font-size:25px;
 letter-spacing:10px;
 
 
-text-align:center;
-
-
 opacity:0;
 
 
 animation:
 
-finalText 3s 4s forwards;
+showText 3s 4s forwards;
 
 
 }
 
 
 
-@keyframes finalText{
+
+
+@keyframes showText{
 
 
 to{
 
-
 opacity:1;
 
-
 }
 
 
@@ -1740,27 +2115,32 @@ opacity:1;
 
 
 
-
-
-.secret{
+.explorerCard{
 
 
 position:absolute;
 
 
-bottom:30px;
+bottom:50px;
 
 
-right:40px;
+left:50%;
 
 
-font-size:12px;
+transform:translateX(-50%);
 
 
-color:#334155;
+padding:20px 50px;
 
 
-cursor:pointer;
+border:
+
+1px solid white;
+
+
+background:
+
+rgba(0,0,0,.4);
 
 
 letter-spacing:3px;
@@ -1770,7 +2150,33 @@ letter-spacing:3px;
 
 
 
-.secret:hover{
+
+.secret404{
+
+
+position:absolute;
+
+
+right:40px;
+
+
+bottom:30px;
+
+
+font-size:14px;
+
+
+color:#64748b;
+
+
+cursor:pointer;
+
+
+}
+
+
+
+.secret404:hover{
 
 
 color:white;
@@ -1790,101 +2196,160 @@ color:white;
 
 
 
-<!-- FINAL SCENE -->
-
-
-<div class="scene" id="ending">
-
-
-<div class="finalFlash"></div>
-
-
-
-
-<div class="finalLogo">
-
-WWW
-
-</div>
-
-
-
-
-
-<div class="finalText">
-
-
-DEBUT ALBUM
-
-<br><br>
-
-
-THE FIRST PAGE
-
-
-<br><br>
-
-
-2026
-
-<br>
-
-THE STORY BEGINS
-
-
-</div>
-
-
-
-
-
-
-
-<div class="secret" onclick="secretFile()">
-
-404
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
 <script>
 
 
 
 
 
-// 앨범 공개 후 엔딩 이동
-
-
-setTimeout(()=>{
-
-
-sceneChange("ending");
-
-
-},16000);
+// 최종 조건 확인
 
 
 
+function checkEnding(){
+
+
+
+let required=[
+
+"ERROR FILE",
+
+"MEMORY FRAME",
+
+"FINAL CORE",
+
+"TIME GATE"
+
+];
+
+
+
+let complete=required.every(x=>
+
+data.includes(x)
+
+);
+
+
+
+if(complete){
+
+
+changeRoom("revealRoom");
+
+
+createID();
+
+
+}
+
+else{
+
+
+popup(
+
+"ENDING LOCKED",
+
+`
+
+아직 모든 기록이
+
+복구되지 않았습니다.
+
+
+
+남은 데이터를 찾아주세요.
+
+`
+
+);
+
+
+
+}
+
+
+
+}
 
 
 
 
 
 
-function secretFile(){
+
+
+
+// 탐험자 ID
+
+
+
+function createID(){
+
+
+
+let id=
+
+"WWW-"+
+
+Math.floor(
+
+Math.random()*90000+10000
+
+);
+
+
+
+document.getElementById("explorer")
+
+.innerHTML=
+
+`
+
+WWW EXPLORER
+
+
+<br><br>
+
+
+ID : ${id}
+
+
+<br>
+
+
+DISCOVERY : COMPLETE
+
+
+`;
+
+
+
+localStorage.setItem(
+
+"WWW_ID",
+
+id
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// SECRET 404
+
+
+
+function openSecret(){
 
 
 
@@ -1898,6 +2363,8 @@ position:fixed;
 inset:0;
 
 background:#000;
+
+color:white;
 
 z-index:9999;
 
@@ -1914,19 +2381,17 @@ text-align:center;
 ">
 
 
-
 <h1 style="
 
-font-size:60px;
-
-letter-spacing:15px;
+font-size:70px;
 
 color:#67e8f9;
 
+letter-spacing:20px;
+
 ">
 
-
-ERROR 404
+404
 
 
 </h1>
@@ -1935,20 +2400,22 @@ ERROR 404
 
 <p style="
 
-font-size:22px;
+font-size:25px;
 
 line-height:2;
+
+letter-spacing:5px;
 
 ">
 
 
-THIS ERROR WAS NOT A MISTAKE.
+ERROR WAS NOT A FAILURE.
 
 
 <br><br>
 
 
-IT WAS THE BEGINNING.
+IT WAS THE FIRST PAGE.
 
 
 <br><br>
