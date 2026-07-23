@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 
 <meta charset="UTF-8">
-
-<title>
-WWW : THE LAST PAGE
-</title>
-
+<title>WWW : THE LAST PAGE</title>
 
 <style>
 
@@ -17,52 +12,34 @@ box-sizing:border-box;
 font-family:"Segoe UI",sans-serif;
 }
 
-
 body{
 
 margin:0;
-
 height:100vh;
-
 background:#000;
-
 color:white;
-
 overflow:hidden;
 
 }
 
 
-
-/* 전체 */
-
 #app{
 
 width:100vw;
-
 height:100vh;
-
 position:relative;
 
 }
 
 
 
-
 .room{
 
 display:none;
-
 position:absolute;
-
 inset:0;
 
-width:100%;
-
-height:100%;
-
 }
-
 
 
 .room.active{
@@ -73,57 +50,38 @@ display:flex;
 
 
 
-
-/* ARCHIVE */
+/* =================
+ARCHIVE
+================= */
 
 
 #archiveRoom{
 
 background:
-
-radial-gradient(
-
-circle at center,
-
-#1e293b,
-
-#020617 75%
-
-);
-
+radial-gradient(circle,#1e293b,#020617 75%);
 
 align-items:center;
-
 justify-content:center;
 
 }
 
 
 
-
-
 .header{
 
 position:absolute;
-
 top:40px;
-
 width:100%;
-
 text-align:center;
 
 }
 
 
-
 .header h1{
 
 font-size:48px;
-
 letter-spacing:12px;
-
 color:#67e8f9;
-
 margin:0;
 
 }
@@ -132,10 +90,7 @@ margin:0;
 
 .header p{
 
-margin-top:15px;
-
 letter-spacing:5px;
-
 color:#94a3b8;
 
 }
@@ -144,18 +99,11 @@ color:#94a3b8;
 
 
 
-
-
-/* 오브젝트 */
-
-
 .object{
 
 position:absolute;
-
 cursor:pointer;
-
-transition:.5s;
+transition:.4s;
 
 }
 
@@ -164,14 +112,8 @@ transition:.5s;
 .object:hover{
 
 transform:scale(1.08);
-
 filter:
-
-drop-shadow(
-
-0 0 25px #67e8f9
-
-);
+drop-shadow(0 0 25px #67e8f9);
 
 }
 
@@ -179,129 +121,74 @@ drop-shadow(
 
 
 
-
-
-/* ERROR FILE */
+/* FILE */
 
 
 .file{
 
 left:12%;
-
 bottom:22%;
 
-
 width:180px;
-
 height:230px;
 
-
 background:
-
 linear-gradient(
-
 135deg,
-
-#f8fafc,
-
+#ffffff,
 #94a3b8
-
 );
 
 
 color:#020617;
 
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 
 text-align:center;
 
-
 font-size:22px;
-
-
 font-weight:bold;
-
 
 line-height:1.5;
 
-
 padding:20px;
 
-
 border-radius:8px;
-
-
-overflow:hidden;
-
 
 }
 
 
 
-
-
-
-
-/* MEMORY FRAME */
+/* MEMORY */
 
 
 .frame{
 
 right:12%;
-
 bottom:25%;
 
-
 width:230px;
-
 height:180px;
 
-
 border:
-
 4px solid #94a3b8;
 
-
-background:
-
-linear-gradient(
-
-135deg,
-
-#111827,
-
-#020617
-
-);
-
+background:#111827;
 
 display:flex;
 
 align-items:center;
-
 justify-content:center;
-
 
 text-align:center;
 
-
 font-size:22px;
-
 
 line-height:1.5;
 
-
-letter-spacing:3px;
-
-
 }
-
 
 
 
@@ -313,31 +200,23 @@ letter-spacing:3px;
 
 .door{
 
-
 bottom:0;
 
 left:50%;
 
 transform:translateX(-50%);
 
-
 width:300px;
-
 height:450px;
 
 
 background:
 
 linear-gradient(
-
 90deg,
-
 #020617,
-
 #475569,
-
 #020617
-
 );
 
 
@@ -355,30 +234,14 @@ justify-content:center;
 
 font-size:22px;
 
-
 letter-spacing:5px;
 
-
-}
-
-
-
-.door:hover{
-
-box-shadow:
-
-0 0 80px #67e8f9;
-
 }
 
 
 
 
 
-
-
-
-/* INFO */
 
 
 .info{
@@ -391,25 +254,15 @@ left:50%;
 
 transform:translateX(-50%);
 
-
 padding:15px 40px;
 
-
 border:
-
 1px solid #67e8f9;
-
 
 border-radius:40px;
 
-
 background:
-
 rgba(0,0,0,.5);
-
-
-letter-spacing:3px;
-
 
 }
 
@@ -430,28 +283,19 @@ position:absolute;
 
 inset:0;
 
-
 background:
-
 rgba(0,0,0,.85);
 
+z-index:99;
 
 align-items:center;
-
 justify-content:center;
-
 
 flex-direction:column;
 
-
 text-align:center;
 
-
-z-index:100;
-
-
 padding:30px;
-
 
 }
 
@@ -460,78 +304,46 @@ padding:30px;
 #popup h1{
 
 font-size:45px;
-
 color:#67e8f9;
 
-letter-spacing:8px;
-
-
 }
+
 
 
 #popup p{
 
 font-size:20px;
-
 line-height:2;
 
-letter-spacing:2px;
-
-
 }
-
 
 
 
 .popupBtn{
 
-
 margin-top:30px;
 
-
 padding:15px 50px;
-
-
-background:none;
-
 
 border:
 
 1px solid white;
 
-
 border-radius:30px;
 
+background:none;
 
 color:white;
 
-
 cursor:pointer;
 
-
 }
-
-
-
-.popupBtn:hover{
-
-
-background:white;
-
-color:black;
-
-
-}
-
 
 
 
 </style>
 
 </head>
-
-
-
 
 
 <body>
@@ -541,121 +353,60 @@ color:black;
 
 
 
-
-
-<!-- ==================
-ARCHIVE
-================== -->
-
-
 <div class="room active" id="archiveRoom">
-
 
 
 <div class="header">
 
+<h1>WWW ARCHIVE</h1>
 
-<h1>
-
-WWW ARCHIVE
-
-</h1>
-
-
-<p>
-
-THE LAST PAGE / UNKNOWN AREA
-
-</p>
-
+<p>THE LAST PAGE / UNKNOWN AREA</p>
 
 </div>
-
-
-
-
 
 
 
 <div class="object file"
-
 onclick="openFile()">
 
-
-ERROR
-
-<br>
-
+ERROR<br>
 FILE
 
-
 </div>
-
-
-
-
 
 
 
 <div class="object frame"
-
 onclick="openMemory()">
 
-
-
-MEMORY
-
-<br>
-
+MEMORY<br>
 FRAME
 
-
 </div>
-
-
-
-
 
 
 
 <div class="object door"
-
 onclick="openDoor()">
-
-
 
 LOCKED
 
-
 </div>
-
-
-
 
 
 
 <div class="info" id="info">
 
-
 SEARCH THE ARCHIVE
 
+</div>
+
+
 
 </div>
 
 
 
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- POPUP -->
 
 
 <div id="popup">
@@ -663,132 +414,95 @@ SEARCH THE ARCHIVE
 
 <h1 id="popupTitle"></h1>
 
-
 <p id="popupText"></p>
 
 
 <button class="popupBtn"
-
 onclick="closePopup()">
 
-
 CLOSE
-
 
 </button>
 
 
 </div>
-
-
-
-
-
-
-<!-- ==================
-FINAL CORE
-================== -->
+<!-- =====================
+FINAL CORE ROOM
+===================== -->
 
 
 <div class="room" id="coreRoom">
 
 
-
 <div class="header">
 
-
 <h1>
-
 WWW FINAL CORE
-
 </h1>
 
-
 <p>
-
 MEMORY RESTORATION SYSTEM
-
 </p>
 
-
 </div>
-
-
-
 
 
 
 <div class="core"
-
 onclick="restoreCore()">
-
-
 
 ◎
 
-
 </div>
 
 
 
-
-
-<div class="coreStatus"
-
-id="coreStatus">
-
+<div class="coreStatus" id="coreStatus">
 
 SYSTEM OFFLINE
 
+</div>
+
+
+
+<button id="openTimeBtn"
+onclick="openTimeGate()">
+
+OPEN TIME GATE
+
+</button>
+
+
 
 </div>
 
 
 
 
-</div>
 
 
 
 
 
-
-
-
-
-
-
-
-<!-- ==================
+<!-- =====================
 TIME GATE
-================== -->
+===================== -->
 
 
 <div class="room" id="timeRoom">
 
 
-
 <div class="header">
 
-
 <h1>
-
 TIME GATE
-
 </h1>
 
-
 <p>
-
-TEMPORAL ACCESS
-
+TEMPORAL ACCESS SYSTEM
 </p>
 
-
 </div>
-
-
-
 
 
 
@@ -797,40 +511,34 @@ TEMPORAL ACCESS
 
 
 <button onclick="travel(2025)">
-
 2025
-
 </button>
 
 
 <button onclick="travel(2030)">
-
 2030
-
 </button>
-
 
 
 <button onclick="travel(2099)">
-
 2099
-
 </button>
 
 
-</div>
 
+</div>
 
 
 
 
 <div class="timeResult"
-
 id="timeResult">
-
 
 SELECT YEAR
 
+</div>
+
+
 
 </div>
 
@@ -838,41 +546,27 @@ SELECT YEAR
 
 
 
-</div>
 
 
 
 
-
-
-
-
-
-<!-- ==================
+<!-- =====================
 ALBUM ROOM
-================== -->
+===================== -->
 
 
 <div class="room" id="albumRoom">
 
 
-
 <div class="header">
 
-
 <h1>
-
 DEBUT ALBUM
-
 </h1>
 
-
 <p>
-
 THE FIRST PAGE
-
 </p>
-
 
 </div>
 
@@ -880,10 +574,8 @@ THE FIRST PAGE
 
 
 
-
-
-
-<div class="album">
+<div class="albumCard"
+onclick="openAlbum()">
 
 
 WORLD
@@ -902,33 +594,12 @@ WEB
 
 
 
+<div class="albumInfo"
+id="albumInfo">
 
-
-<div class="track">
-
-
-01. BEGIN
-
-<br><br>
-
-02. SIGNAL
-
-<br><br>
-
-03. MEMORY
-
-<br><br>
-
-04. FUTURE
-
-<br><br>
-
-05. FIRST PAGE
-
+CLICK ALBUM
 
 </div>
-
-
 
 
 
@@ -942,38 +613,25 @@ WEB
 
 
 
-
-
-
-
-<!-- ==================
-MEMBER ARCHIVE
-================== -->
+<!-- =====================
+MEMBER ROOM
+===================== -->
 
 
 <div class="room" id="memberRoom">
 
 
-
 <div class="header">
 
-
 <h1>
-
 MEMBER ARCHIVE
-
 </h1>
 
-
 <p>
-
 IDENTITY DATA
-
 </p>
 
-
 </div>
-
 
 
 
@@ -982,34 +640,23 @@ IDENTITY DATA
 <div class="members">
 
 
-<div>
-
+<div onclick="memberOpen(1)">
 MEMBER 01
-
 </div>
 
 
-
-<div>
-
+<div onclick="memberOpen(2)">
 MEMBER 02
-
 </div>
 
 
-
-<div>
-
+<div onclick="memberOpen(3)">
 MEMBER 03
-
 </div>
 
 
-
-<div>
-
+<div onclick="memberOpen(4)">
 MEMBER 04
-
 </div>
 
 
@@ -1018,12 +665,16 @@ MEMBER 04
 
 
 
+<button class="finalBtn"
+onclick="openFinal()">
+
+OPEN FINAL PAGE
+
+</button>
+
 
 
 </div>
-
-
-
 
 
 
@@ -1036,24 +687,19 @@ MEMBER 04
 <style>
 
 
+
 /* CORE */
 
 
 #coreRoom{
 
-
 background:
 
 radial-gradient(
-
 circle,
-
 #0f172a,
-
 #000
-
 );
-
 
 flex-direction:column;
 
@@ -1061,8 +707,8 @@ align-items:center;
 
 justify-content:center;
 
-
 }
+
 
 
 
@@ -1072,7 +718,6 @@ justify-content:center;
 width:260px;
 
 height:260px;
-
 
 border-radius:50%;
 
@@ -1084,9 +729,7 @@ border:
 
 display:flex;
 
-
 align-items:center;
-
 
 justify-content:center;
 
@@ -1102,21 +745,19 @@ cursor:pointer;
 
 box-shadow:
 
-
 0 0 100px #67e8f9;
 
 
 animation:
 
-spin 8s linear infinite;
+rotateCore 8s linear infinite;
 
 
 }
 
 
 
-
-@keyframes spin{
+@keyframes rotateCore{
 
 
 100%{
@@ -1135,14 +776,47 @@ transform:rotate(360deg);
 .coreStatus{
 
 
-margin-top:40px;
-
+margin-top:35px;
 
 font-size:22px;
 
-
 letter-spacing:5px;
 
+
+}
+
+
+
+#openTimeBtn{
+
+
+display:none;
+
+margin-top:30px;
+
+padding:15px 50px;
+
+background:none;
+
+border:
+
+1px solid #67e8f9;
+
+color:white;
+
+border-radius:40px;
+
+cursor:pointer;
+
+}
+
+
+
+#openTimeBtn:hover{
+
+background:#67e8f9;
+
+color:#020617;
 
 }
 
@@ -1158,7 +832,6 @@ letter-spacing:5px;
 
 #timeRoom{
 
-
 background:
 
 linear-gradient(
@@ -1169,11 +842,9 @@ linear-gradient(
 
 );
 
-
 flex-direction:column;
 
 align-items:center;
-
 
 }
 
@@ -1181,15 +852,11 @@ align-items:center;
 
 .timeButtons{
 
-
-margin-top:80px;
-
+margin-top:100px;
 
 display:flex;
 
-
-gap:20px;
-
+gap:25px;
 
 }
 
@@ -1200,58 +867,33 @@ gap:20px;
 
 padding:20px 50px;
 
-
-background:none;
-
-
 border:
 
 1px solid #67e8f9;
 
-
-border-radius:40px;
-
+background:none;
 
 color:white;
 
+border-radius:40px;
+
+cursor:pointer;
 
 font-size:20px;
 
 
-cursor:pointer;
-
-
 }
-
-
-
-
-.timeButtons button:hover{
-
-
-background:#67e8f9;
-
-
-color:#020617;
-
-
-}
-
 
 
 
 
 .timeResult{
 
-
 margin-top:50px;
-
 
 font-size:25px;
 
-
 letter-spacing:5px;
-
 
 }
 
@@ -1267,7 +909,6 @@ letter-spacing:5px;
 
 #albumRoom{
 
-
 background:
 
 radial-gradient(
@@ -1280,22 +921,19 @@ circle,
 
 );
 
-
 flex-direction:column;
 
-
 align-items:center;
-
 
 }
 
 
 
-.album{
+
+.albumCard{
 
 
-margin-top:60px;
-
+margin-top:100px;
 
 width:320px;
 
@@ -1309,9 +947,7 @@ border:
 
 display:flex;
 
-
 align-items:center;
-
 
 justify-content:center;
 
@@ -1327,13 +963,15 @@ letter-spacing:10px;
 
 box-shadow:
 
-
 0 0 80px #67e8f9;
+
+
+cursor:pointer;
 
 
 animation:
 
-float 5s infinite;
+floating 4s infinite;
 
 
 }
@@ -1341,8 +979,7 @@ float 5s infinite;
 
 
 
-
-@keyframes float{
+@keyframes floating{
 
 
 50%{
@@ -1357,26 +994,13 @@ transform:translateY(-20px);
 
 
 
-.track{
-
+.albumInfo{
 
 margin-top:40px;
 
-
-font-size:18px;
-
-
-line-height:1.8;
-
-
-letter-spacing:4px;
-
-
-text-align:center;
-
+letter-spacing:5px;
 
 }
-
 
 
 
@@ -1390,15 +1014,11 @@ text-align:center;
 
 #memberRoom{
 
-
 background:#020617;
-
 
 flex-direction:column;
 
-
 align-items:center;
-
 
 }
 
@@ -1406,15 +1026,11 @@ align-items:center;
 
 .members{
 
-
-margin-top:80px;
-
-
 display:flex;
 
+gap:25px;
 
-gap:30px;
-
+margin-top:100px;
 
 }
 
@@ -1423,10 +1039,9 @@ gap:30px;
 .members div{
 
 
-width:140px;
+width:150px;
 
-
-height:200px;
+height:210px;
 
 
 border:
@@ -1436,11 +1051,12 @@ border:
 
 display:flex;
 
-
 align-items:center;
 
-
 justify-content:center;
+
+
+cursor:pointer;
 
 
 background:
@@ -1451,53 +1067,64 @@ rgba(255,255,255,.05);
 }
 
 
+
+
+.finalBtn{
+
+
+margin-top:50px;
+
+padding:15px 50px;
+
+background:none;
+
+border:
+
+1px solid white;
+
+color:white;
+
+border-radius:40px;
+
+cursor:pointer;
+
+}
+
+
+
 </style>
 <script>
 
 
 // =====================
-// DATA SYSTEM
+// DATA
 // =====================
 
 
 let data =
-
 JSON.parse(
-
 localStorage.getItem("WWW_DATA")
-
 )
-
-|| [];
-
+||
+[];
 
 
 
 
 function saveData(item){
 
-
 if(!data.includes(item)){
-
 
 data.push(item);
 
-
 localStorage.setItem(
-
 "WWW_DATA",
-
 JSON.stringify(data)
-
 );
 
-
 }
 
-
 }
-
-
 
 
 
@@ -1505,38 +1132,29 @@ JSON.stringify(data)
 
 
 // =====================
-// ROOM 이동
+// ROOM CHANGE
 // =====================
-
 
 
 function changeRoom(id){
 
 
 document
-
 .querySelectorAll(".room")
-
 .forEach(room=>{
 
-
 room.classList.remove("active");
-
 
 });
 
 
 
 document
-
 .getElementById(id)
-
 .classList.add("active");
 
 
 }
-
-
 
 
 
@@ -1549,26 +1167,18 @@ document
 // =====================
 
 
-
 function popup(title,text){
 
 
 document.getElementById("popupTitle")
-
 .innerHTML=title;
 
 
-
 document.getElementById("popupText")
-
-.innerHTML=
-
-text.replace(/\n/g,"<br>");
-
+.innerHTML=text.replace(/\n/g,"<br>");
 
 
 document.getElementById("popup")
-
 .style.display="flex";
 
 
@@ -1577,12 +1187,10 @@ document.getElementById("popup")
 
 
 
-
 function closePopup(){
 
 
 document.getElementById("popup")
-
 .style.display="none";
 
 
@@ -1597,43 +1205,38 @@ document.getElementById("popup")
 
 
 // =====================
-// FILE
+// ERROR FILE
 // =====================
-
 
 
 function openFile(){
 
 
-
 saveData("ERROR FILE");
-
 
 
 popup(
 
 "ERROR FILE FOUND",
 
-
 `
-
 STATUS : SOLVED
 
-<br>
+<br><br>
 
 첫 번째 오류는
+
 실수가 아니었다.
 
-<br>
+<br><br>
 
 WWW SYSTEM은
-처음부터
-이 기록을 남겼다.
+
+이 기록을 기다리고 있었다.
 
 `
 
 );
-
 
 
 }
@@ -1647,17 +1250,14 @@ WWW SYSTEM은
 
 
 // =====================
-// MEMORY
+// MEMORY FRAME
 // =====================
-
 
 
 function openMemory(){
 
 
-
 saveData("MEMORY FRAME");
-
 
 
 popup(
@@ -1667,12 +1267,13 @@ popup(
 `
 
 A MEMORY
+
 THAT SHOULD NOT EXIST.
 
-<br>
+<br><br>
 
-누군가는
-이 순간을
+누군가는 이 순간을
+
 기억하고 있었다.
 
 `
@@ -1695,9 +1296,7 @@ THAT SHOULD NOT EXIST.
 // =====================
 
 
-
 function openDoor(){
-
 
 
 if(
@@ -1709,10 +1308,6 @@ data.includes("ERROR FILE")
 data.includes("MEMORY FRAME")
 
 ){
-
-
-saveData("FINAL DOOR");
-
 
 
 popup(
@@ -1750,8 +1345,7 @@ popup(
 
 `
 
-REQUIRED DATA:
-
+필요한 데이터:
 
 <br><br>
 
@@ -1759,15 +1353,7 @@ ERROR FILE
 
 <br>
 
-+
-
-<br>
-
 MEMORY FRAME
-
-<br><br>
-
-기록을 먼저 찾아야 한다.
 
 `
 
@@ -1779,8 +1365,6 @@ MEMORY FRAME
 
 
 }
-
-
 
 
 
@@ -1795,22 +1379,15 @@ MEMORY FRAME
 // =====================
 
 
-
 function restoreCore(){
 
 
+let status =
+document.getElementById("coreStatus");
 
-document.getElementById(
 
-"coreStatus"
-
-)
-
-.innerHTML=
-
+status.innerHTML =
 "RESTORING MEMORY DATA...";
-
-
 
 
 
@@ -1820,32 +1397,14 @@ setTimeout(()=>{
 saveData("FINAL CORE");
 
 
+status.innerHTML =
+"MEMORY RESTORED";
+
 
 document.getElementById(
-
-"coreStatus"
-
+"openTimeBtn"
 )
-
-.innerHTML=
-
-"TIME GATE AVAILABLE";
-
-
-
-popup(
-
-"CORE RESTORED",
-
-`
-
-FINAL MEMORY DATA
-
-RECOVERED.
-
-`
-
-);
+.style.display="block";
 
 
 
@@ -1861,11 +1420,24 @@ RECOVERED.
 
 
 
+// =====================
+// TIME GATE
+// =====================
 
 
-// =====================
-// TIME
-// =====================
+function openTimeGate(){
+
+
+saveData("TIME GATE");
+
+
+changeRoom("timeRoom");
+
+
+}
+
+
+
 
 
 
@@ -1877,19 +1449,16 @@ let result="";
 
 
 
-
-
 if(year===2025){
 
 
 result=
 
-"ORIGIN FOUND : WWW CREATED";
+"ORIGIN FOUND";
+
 
 
 }
-
-
 
 
 
@@ -1898,11 +1467,11 @@ if(year===2030){
 
 result=
 
-"WARNING : MEMORY LOST";
+"WARNING : LOST MEMORY";
+
 
 
 }
-
 
 
 
@@ -1915,45 +1484,27 @@ result=
 "FINAL DATA FOUND";
 
 
-saveData("TIME GATE");
-
-
-
-}
-
-
-
-
-
-document.getElementById(
-
-"timeResult"
-
-)
-
-.innerHTML=result;
-
-
-
+saveData("2099");
 
 
 setTimeout(()=>{
 
 
-if(year===2099){
-
-
 changeRoom("albumRoom");
-
-
-}
-
 
 
 },2000);
 
 
+}
 
+
+
+
+document.getElementById(
+"timeResult"
+)
+.innerHTML=result;
 
 
 }
@@ -1967,21 +1518,66 @@ changeRoom("albumRoom");
 
 
 
-
 // =====================
-// ALBUM → MEMBER
+// ALBUM
 // =====================
 
 
 
-document
-
-.getElementById("albumRoom")
-
-.onclick=function(){
+function openAlbum(){
 
 
 saveData("ALBUM DATA");
+
+
+document.getElementById(
+"albumInfo"
+)
+.innerHTML=
+
+`
+
+TRACK DATA UNLOCKED
+
+<br><br>
+
+01 BEGIN
+
+<br>
+
+02 SIGNAL
+
+<br>
+
+03 MEMORY
+
+<br>
+
+04 FUTURE
+
+<br>
+
+05 FIRST PAGE
+
+<br><br>
+
+<button onclick="goMember()">
+
+OPEN MEMBER ARCHIVE
+
+</button>
+
+`;
+
+
+
+}
+
+
+
+
+
+function goMember(){
 
 
 changeRoom("memberRoom");
@@ -1997,30 +1593,78 @@ changeRoom("memberRoom");
 
 
 
-
 // =====================
-// MEMBER → FINAL
+// MEMBER
 // =====================
 
 
-
-document
-
-.getElementById("memberRoom")
-
-.onclick=function(){
+function memberOpen(num){
 
 
 
-saveData("MEMBER DATA");
+popup(
+
+"MEMBER DATA "+num,
+
+`
+
+IDENTITY LOCKED
+
+<br><br>
+
+NEW DATA DISCOVERED.
+
+`
+
+);
 
 
-changeRoom("revealRoom");
+
+saveData(
+"MEMBER "+num
+);
 
 
 }
 
 
+
+
+
+
+
+
+
+// =====================
+// FINAL
+// =====================
+
+
+function openFinal(){
+
+
+saveData("FINAL ENDING");
+
+
+document
+.querySelectorAll(".room")
+.forEach(room=>{
+
+
+room.classList.remove("active");
+
+
+});
+
+
+
+document
+.getElementById("revealRoom")
+.classList.add("active");
+
+
+
+}
 
 
 
@@ -2037,15 +1681,42 @@ changeRoom("revealRoom");
 
 
 
-<!-- FINAL REVEAL -->
 
+
+<!-- FINAL REVEAL -->
 
 <div class="room" id="revealRoom">
 
 
 <div style="
 
+width:100%;
+
+height:100%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
+
 text-align:center;
+
+background:
+
+radial-gradient(
+
+circle,
+
+#ffffff,
+
+#67e8f9,
+
+#020617
+
+);
 
 ">
 
@@ -2056,7 +1727,9 @@ font-size:150px;
 
 letter-spacing:40px;
 
-color:#67e8f9;
+color:#020617;
+
+margin:0;
 
 ">
 
@@ -2065,28 +1738,22 @@ WWW
 </h1>
 
 
-
 <h2 style="
 
-font-size:30px;
+font-size:35px;
 
 letter-spacing:10px;
 
 ">
 
-
 THE FIRST PAGE
-
 
 </h2>
 
 
-
 <p style="
 
-margin-top:40px;
-
-font-size:20px;
+font-size:22px;
 
 letter-spacing:5px;
 
@@ -2109,7 +1776,7 @@ DEBUT ALBUM
 
 style="
 
-position:fixed;
+position:absolute;
 
 right:40px;
 
@@ -2117,20 +1784,16 @@ bottom:30px;
 
 cursor:pointer;
 
-color:#64748b;
+color:#475569;
 
 ">
 
-
 404
 
-
 </div>
 
 
-
 </div>
-
 
 
 </div>
@@ -2146,9 +1809,7 @@ color:#64748b;
 <script>
 
 
-
 function secret404(){
-
 
 
 document.body.innerHTML+=`
@@ -2163,24 +1824,24 @@ background:#000;
 
 color:white;
 
+z-index:9999;
+
 display:flex;
 
-align-items:center;
-
 justify-content:center;
+
+align-items:center;
 
 flex-direction:column;
 
 text-align:center;
-
-z-index:9999;
 
 ">
 
 
 <h1 style="
 
-font-size:80px;
+font-size:90px;
 
 color:#67e8f9;
 
@@ -2193,7 +1854,6 @@ letter-spacing:20px;
 </h1>
 
 
-
 <p style="
 
 font-size:25px;
@@ -2204,21 +1864,15 @@ letter-spacing:5px;
 
 ">
 
-
 ERROR WAS NOT A FAILURE.
 
-
 <br><br>
-
 
 IT WAS THE FIRST PAGE.
 
-
 <br><br>
 
-
 WWW SYSTEM COMPLETE.
-
 
 </p>
 
@@ -2227,14 +1881,10 @@ WWW SYSTEM COMPLETE.
 
 `;
 
-
-
 }
 
 
-
 </script>
-
 
 
 </body>
