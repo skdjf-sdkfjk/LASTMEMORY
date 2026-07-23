@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+WWW : FINAL CHAPTER
+</title>
+
+
+<style>
+
+
+*{
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+
+
+body{
+
+margin:0;
+
+height:100vh;
+
+overflow:hidden;
+
+background:#020617;
+
+color:white;
+
+}
+
+
+
+
+
+/* =====================
+ SPACE
+===================== */
+
+
+.space{
+
+position:relative;
+
+width:100vw;
+
+height:100vh;
+
+overflow:hidden;
+
+
+background:
+
+radial-gradient(
+circle at center,
+#1e3a8a,
+#020617 70%
+);
+
+
+}
+
+
+
+
+/* 별 */
+
+.space:before{
+
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+
+background-image:
+
+radial-gradient(
+white 1px,
+transparent 1px
+);
+
+
+background-size:
+
+70px 70px;
+
+
+opacity:.2;
+
+
+animation:
+
+stars 20s linear infinite;
+
+
+}
+
+
+
+
+@keyframes stars{
+
+
+from{
+
+transform:translateY(0);
+
+}
+
+
+to{
+
+transform:translateY(70px);
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* TITLE */
+
+
+.title{
+
+
+position:absolute;
+
+
+top:40px;
+
+
+width:100%;
+
+
+text-align:center;
+
+
+z-index:5;
+
+
+}
+
+
+
+.title h1{
+
+
+font-size:45px;
+
+
+letter-spacing:10px;
+
+
+color:#67e8f9;
+
+
+margin:0;
+
+
+}
+
+
+.title p{
+
+
+opacity:.7;
+
+
+letter-spacing:4px;
+
+
+}
+
+
+
+
+
+
+/* CORE */
+
+
+.core{
+
+
+position:absolute;
+
+
+top:50%;
+
+
+left:50%;
+
+
+transform:
+
+translate(-50%,-50%);
+
+
+width:280px;
+
+
+height:280px;
+
+
+border-radius:50%;
+
+
+border:
+
+3px solid #67e8f9;
+
+
+box-shadow:
+
+
+0 0 60px #67e8f9,
+
+inset 0 0 60px #67e8f9;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+cursor:pointer;
+
+
+animation:pulse 3s infinite;
+
+
+}
+
+
+
+
+.core span{
+
+
+text-align:center;
+
+
+letter-spacing:3px;
+
+
+}
+
+
+
+
+
+@keyframes pulse{
+
+
+50%{
+
+
+box-shadow:
+
+0 0 100px #67e8f9,
+
+inset 0 0 80px #67e8f9;
+
+
+}
+
+
+}
+
+
+
+
+
+/* TRACK */
+
+
+.album{
+
+
+position:absolute;
+
+
+left:40px;
+
+
+top:180px;
+
+
+width:260px;
+
+
+background:
+
+rgba(15,23,42,.7);
+
+
+border:
+
+1px solid #67e8f9;
+
+
+padding:20px;
+
+
+border-radius:20px;
+
+
+}
+
+
+
+
+
+.album h2{
+
+
+color:#67e8f9;
+
+
+}
+
+
+
+.track{
+
+
+padding:12px;
+
+
+margin:10px 0;
+
+
+border:
+
+1px solid rgba(255,255,255,.2);
+
+
+border-radius:10px;
+
+
+cursor:pointer;
+
+
+}
+
+
+
+
+.track:hover{
+
+
+background:#67e8f9;
+
+color:#020617;
+
+
+}
+
+
+
+
+
+
+/* MEMORY */
+
+
+.memory{
+
+
+position:absolute;
+
+
+right:40px;
+
+
+top:180px;
+
+
+width:260px;
+
+
+background:
+
+rgba(15,23,42,.7);
+
+
+border:
+
+1px solid #67e8f9;
+
+
+padding:20px;
+
+
+border-radius:20px;
+
+
+}
+
+
+
+
+
+.fragment{
+
+
+padding:10px;
+
+
+margin:10px 0;
+
+
+border-bottom:
+
+1px solid #334155;
+
+
+cursor:pointer;
+
+
+}
+
+
+
+
+
+
+</style>
+</head>
+
+
+<body>
+
+
+
+<div class="space">
+
+
+
+
+
+<div class="title">
+
+
+<h1>
+
+WWW : FINAL CHAPTER
+
+</h1>
+
+
+<p>
+
+THE LAST FRAME / DEBUT ARCHIVE
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- FINAL CORE -->
+
+
+<div class="core" onclick="activateCore()">
+
+
+
+<span>
+
+FINAL<br>
+
+CORE
+
+<br><br>
+
+◉
+
+</span>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- TRACK LIST -->
+
+
+<div class="album">
+
+
+<h2>
+
+DEBUT ALBUM
+
+</h2>
+
+
+
+<div class="track" onclick="openTrack(1)">
+
+01. FIRST SIGNAL
+
+</div>
+
+
+<div class="track" onclick="openTrack(2)">
+
+02. UNKNOWN CODE
+
+</div>
+
+
+
+<div class="track" onclick="openTrack(3)">
+
+03. MEMORY LOOP
+
+</div>
+
+
+
+<div class="track" onclick="openTrack(4)">
+
+04. FUTURE CALL
+
+</div>
+
+
+
+<div class="track" onclick="openTrack(5)">
+
+05. THE FIRST PAGE 🔒
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- MEMORY -->
+
+
+<div class="memory">
+
+
+<h2>
+
+MEMORY FRAGMENTS
+
+</h2>
+
+
+<div class="fragment" onclick="memory(1)">
+
+Fragment #01
+
+</div>
+
+
+
+<div class="fragment" onclick="memory(2)">
+
+Fragment #02
+
+</div>
+
+
+
+
+<div class="fragment" onclick="memory(3)">
+
+Fragment #03
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+let coreOpened=false;
+
+
+
+let finalTrack=false;
+
+
+
+
+
+const tracks=[
+
+
+"FIRST SIGNAL",
+
+"UNKNOWN CODE",
+
+"MEMORY LOOP",
+
+"FUTURE CALL",
+
+"THE FIRST PAGE"
+
+
+];
+
+
+
+
+
+
+
+function activateCore(){
+
+
+if(coreOpened)
+
+return;
+
+
+
+coreOpened=true;
+
+
+
+document.querySelector(".core span")
+
+.innerHTML=
+
+`
+
+SYSTEM ONLINE
+
+<br><br>
+
+WWW DATA FOUND
+
+<br><br>
+
+100%
+
+`;
+
+
+
+setTimeout(()=>{
+
+
+alert(
+
+"FINAL CORE ACTIVATED\n\n"
+
++
+
+"DEBUT ALBUM DATA RESTORED"
+
+);
+
+
+
+},800);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function openTrack(num){
+
+
+
+if(num===5 && !coreOpened){
+
+
+
+alert(
+
+"LOCKED\n\n"
+
++
+
+"먼저 FINAL CORE를 활성화하세요."
+
+);
+
+
+return;
+
+
+}
+
+
+
+
+
+
+
+if(num===5){
+
+
+
+finalTrack=true;
+
+
+
+showFinal();
+
+
+
+return;
+
+
+}
+
+
+
+
+
+
+
+alert(
+
+"TRACK 0"+num+
+
+"\n\n"
+
++
+
+tracks[num-1]
+
++
+
+"\n\nDATA RESTORED"
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function memory(num){
+
+
+
+const memories=[
+
+
+
+`
+
+MEMORY FRAGMENT #01
+
+
+처음 만난 순간.
+
+아직 아무것도 정해지지 않았던 시간.
+
+
+하지만 우리는 같은 방향을 바라봤다.
+
+`,
+
+
+
+
+
+`
+
+MEMORY FRAGMENT #02
+
+
+수많은 오류와 실패.
+
+
+그 모든 순간이
+
+우리를 여기까지 데려왔다.
+
+`,
+
+
+
+
+
+
+`
+
+MEMORY FRAGMENT #03
+
+
+마지막 기록.
+
+
+이 페이지에 도착한 사람은
+
+이미 우리의 이야기를 알고 있다.
+
+`
+
+];
+
+
+
+
+
+
+alert(memories[num-1]);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function showFinal(){
+
+
+
+document.body.innerHTML+=`
+
+
+<div id="ending"
+
+
+style="
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(circle,#1e3a8a,#020617);
+
+z-index:999;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
+
+text-align:center;
+
+">
+
+
+
+<h1 style="
+
+font-size:60px;
+
+letter-spacing:12px;
+
+color:#67e8f9;
+
+">
+
+
+WWW
+
+
+</h1>
+
+
+
+<h2>
+
+DEBUT ALBUM
+
+<br>
+
+THE FIRST PAGE
+
+</h2>
+
+
+
+<p style="
+
+font-size:20px;
+
+line-height:2;
+
+">
+
+
+PROJECT COMPLETE
+
+
+<br><br>
+
+
+하지만 이것은
+
+끝이 아닙니다.
+
+
+<br><br>
+
+
+THE STORY BEGINS NOW.
+
+
+</p>
+
+
+
+<button onclick="playFinal()"
+
+style="
+
+margin-top:30px;
+
+padding:15px 40px;
+
+border-radius:30px;
+
+background:transparent;
+
+border:1px solid #67e8f9;
+
+color:white;
+
+cursor:pointer;
+
+">
+
+
+PLAY FINAL TRACK
+
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function playFinal(){
+
+
+
+document.querySelector("#ending")
+
+.innerHTML=`
+
+<h1 style="color:#67e8f9">
+
+FINAL TRACK PLAYING
+
+</h1>
+
+
+<p style="font-size:22px;line-height:2">
+
+
+♪ DEBUT ALBUM : WWW ♪
+
+
+<br><br>
+
+
+WORLD WIDE WEB
+
+
+<br><br>
+
+
+2026
+
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+
+</script>
+<style>
+
+
+/* FINAL ENDING */
+
+.finalLogo{
+
+
+font-size:80px;
+
+letter-spacing:20px;
+
+color:#67e8f9;
+
+animation:logoShow 3s;
+
+
+}
+
+
+
+
+@keyframes logoShow{
+
+
+from{
+
+opacity:0;
+
+letter-spacing:50px;
+
+}
+
+
+to{
+
+opacity:1;
+
+letter-spacing:20px;
+
+}
+
+
+}
+
+
+
+
+
+
+
+.albumCover{
+
+
+width:320px;
+
+height:320px;
+
+
+margin:30px;
+
+
+background:
+
+linear-gradient(
+135deg,
+#67e8f9,
+#312e81
+);
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+font-size:40px;
+
+
+letter-spacing:8px;
+
+
+box-shadow:
+
+0 0 80px #67e8f9;
+
+
+animation:
+
+float 4s infinite;
+
+
+}
+
+
+
+
+@keyframes float{
+
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+
+}
+
+
+
+
+
+
+.members{
+
+
+display:flex;
+
+gap:30px;
+
+margin-top:30px;
+
+
+}
+
+
+
+.member{
+
+
+width:120px;
+
+
+height:120px;
+
+
+border-radius:50%;
+
+
+border:
+
+1px solid #67e8f9;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+font-size:14px;
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+<script>
+
+
+function debutEnding(){
+
+
+
+document.body.innerHTML+=`
+
+
+<div style="
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(circle,#172554,#020617);
+
+z-index:9999;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+flex-direction:column;
+
+
+text-align:center;
+
+
+">
+
+
+
+
+
+<div class="finalLogo">
+
+WWW
+
+</div>
+
+
+
+
+
+
+<div class="albumCover">
+
+WORLD<br>
+
+WIDE<br>
+
+WEB
+
+</div>
+
+
+
+
+
+
+
+<h2>
+
+DEBUT SINGLE ALBUM
+
+<br>
+
+"THE FIRST PAGE"
+
+</h2>
+
+
+
+
+
+
+
+<div class="members">
+
+
+<div class="member">
+
+MEMBER 01
+
+</div>
+
+
+<div class="member">
+
+MEMBER 02
+
+</div>
+
+
+<div class="member">
+
+MEMBER 03
+
+</div>
+
+
+<div class="member">
+
+MEMBER 04
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<p style="
+
+margin-top:50px;
+
+font-size:22px;
+
+line-height:2;
+
+">
+
+
+SYSTEM :
+
+COMPLETE
+
+
+<br><br>
+
+
+ERRORS,
+
+MEMORIES,
+
+AND FUTURE.
+
+
+<br>
+
+
+ALL CONNECTED.
+
+
+<br><br>
+
+
+2026
+
+<br>
+
+WWW DEBUT
+
+
+</p>
+
+
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+
+
+
+</script>
