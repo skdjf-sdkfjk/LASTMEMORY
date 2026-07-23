@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <title>
-WWW : FINAL CHAPTER
+WWW : THE WORLD AFTER ZERO
 </title>
 
 
@@ -19,17 +19,18 @@ font-family:"Segoe UI",sans-serif;
 }
 
 
+
 body{
 
 margin:0;
 
-height:100vh;
-
-overflow:hidden;
-
 background:#000;
 
 color:white;
+
+height:100vh;
+
+overflow:hidden;
 
 }
 
@@ -50,9 +51,8 @@ overflow:hidden;
 
 
 
-/* ==================
- 공통 장면
-================== */
+
+/* 공통 화면 */
 
 
 .scene{
@@ -60,7 +60,6 @@ overflow:hidden;
 position:absolute;
 
 inset:0;
-
 
 display:flex;
 
@@ -70,19 +69,14 @@ justify-content:center;
 
 flex-direction:column;
 
-
 opacity:0;
 
 pointer-events:none;
 
-
-transition:
-
-opacity 2s ease;
+transition:2s;
 
 
 }
-
 
 
 
@@ -92,15 +86,19 @@ opacity:1;
 
 pointer-events:auto;
 
+
 }
 
 
 
 
 
-/* ==================
- BOOT
-================== */
+
+/* =================
+
+BOOT
+
+================= */
 
 
 #boot{
@@ -108,16 +106,18 @@ pointer-events:auto;
 
 background:#000;
 
+
 }
 
 
+.bootText{
 
-.system{
+
+font-size:20px;
 
 
-font-size:18px;
+letter-spacing:8px;
 
-letter-spacing:6px;
 
 color:#aaa;
 
@@ -126,37 +126,60 @@ color:#aaa;
 
 
 
-.loading{
+.percent{
 
 
-width:300px;
+font-size:60px;
 
-height:3px;
 
-background:#222;
+margin-top:30px;
 
-margin-top:40px;
 
-overflow:hidden;
+letter-spacing:5px;
 
 
 }
 
 
 
-.loading-bar{
+
+.loading{
 
 
-width:0%;
+width:400px;
+
+
+height:2px;
+
+
+background:#222;
+
+
+margin-top:40px;
+
+
+}
+
+
+
+.loading span{
+
+
+display:block;
+
 
 height:100%;
+
+
+width:0;
+
 
 background:white;
 
 
 animation:
 
-loading 5s forwards;
+load 6s forwards;
 
 
 }
@@ -164,7 +187,7 @@ loading 5s forwards;
 
 
 
-@keyframes loading{
+@keyframes load{
 
 
 to{
@@ -179,12 +202,16 @@ width:100%;
 
 
 
-/* ==================
- ARCHIVE
-================== */
+
+/* =================
+
+ROOM
+
+================= */
 
 
-#archive{
+
+#room{
 
 
 background:
@@ -194,9 +221,9 @@ radial-gradient(
 
 circle,
 
-#323232,
+#1e293b,
 
-#000 70%
+#020617 70%
 
 );
 
@@ -206,10 +233,13 @@ circle,
 
 
 
-.archive-title{
+
+
+.roomTitle{
 
 
 font-size:55px;
+
 
 letter-spacing:15px;
 
@@ -218,14 +248,17 @@ letter-spacing:15px;
 
 
 
-.archive-sub{
+
+.roomSub{
 
 
 margin-top:20px;
 
-letter-spacing:5px;
 
-color:#aaa;
+color:#94a3b8;
+
+
+letter-spacing:5px;
 
 
 }
@@ -235,306 +268,82 @@ color:#aaa;
 
 
 
-
-/* CORE */
-
-
-.core{
+/* 문 */
 
 
-margin-top:80px;
+.door{
 
 
-width:220px;
-
-height:220px;
+margin-top:70px;
 
 
-border-radius:50%;
+width:260px;
+
+
+height:400px;
 
 
 border:
 
-1px solid white;
+2px solid rgba(255,255,255,.5);
+
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#111,
+
+#334155,
+
+#111
+
+);
+
 
 
 display:flex;
 
+
 align-items:center;
+
 
 justify-content:center;
 
 
-cursor:pointer;
-
-
-font-size:20px;
-
-
-letter-spacing:5px;
-
-
-box-shadow:
-
-
-0 0 70px rgba(255,255,255,.4);
-
-
-animation:
-
-floating 4s infinite;
-
-
-}
-
-
-
-
-@keyframes floating{
-
-
-50%{
-
-transform:translateY(-15px);
-
-}
-
-
-}
-
-
-
-
-
-.core:hover{
-
-
-box-shadow:
-
-0 0 120px white;
-
-
-}
-
-
-
-
-
-
-
-
-/* ==================
- MEMORY
-================== */
-
-
-
-.memory-title{
-
-
-font-size:45px;
-
-letter-spacing:10px;
-
-
-}
-
-
-
-
-.memory-box{
-
-
-margin-top:60px;
-
-
-width:400px;
-
-
-padding:40px;
-
-
-border:
-
-1px solid rgba(255,255,255,.4);
-
-
-text-align:center;
-
-
-background:
-
-rgba(255,255,255,.05);
-
-
-}
-
-
-
-.memory-text{
-
-
-font-size:20px;
-
-line-height:2;
-
-
-}
-
-
-
-
-.memory-button{
-
-
-margin-top:40px;
-
-
-padding:15px 50px;
-
-
-background:none;
-
-
-border:
-
-1px solid white;
-
-
-color:white;
-
-
-border-radius:30px;
-
 
 cursor:pointer;
 
 
-}
-
-
-
-
-
-/* ==================
- FINAL
-================== */
-
-
-#final{
-
-
-background:
-
-
-radial-gradient(
-
-circle,
-
-#ffffff,
-
-#93c5fd 10%,
-
-#020617 50%
-
-);
+transition:2s;
 
 
 }
 
 
 
-
-
-.final-light{
-
-
-position:absolute;
-
-
-width:100px;
-
-
-height:100px;
-
-
-background:white;
-
-
-border-radius:50%;
+.door:hover{
 
 
 box-shadow:
 
-0 0 150px white;
-
-
-animation:
-
-lightOpen 4s forwards;
+0 0 80px white;
 
 
 }
 
 
 
-@keyframes lightOpen{
+.door.open{
 
 
-from{
+transform:
 
-transform:scale(0);
+perspective(800px)
 
-}
-
-
-
-to{
-
-transform:scale(20);
-
-opacity:0;
-
-}
-
-
-}
-
-
-
-
-
-.logo{
-
-
-font-size:130px;
-
-
-letter-spacing:35px;
-
-
-opacity:0;
-
-
-animation:
-
-logoShow 3s 2s forwards;
-
-
-}
-
-
-
-
-
-@keyframes logoShow{
-
-
-to{
-
-opacity:1;
-
-}
+rotateY(-70deg);
 
 
 }
@@ -544,110 +353,16 @@ opacity:1;
 
 
 
-.album{
+.doorText{
 
 
-margin-top:40px;
-
-
-font-size:25px;
-
-
-letter-spacing:8px;
-
-
-text-align:center;
-
-
-opacity:0;
-
-
-animation:
-
-textShow 3s 4s forwards;
+letter-spacing:4px;
 
 
 }
 
 
 
-
-
-.release{
-
-
-margin-top:50px;
-
-
-letter-spacing:6px;
-
-
-color:#cbd5e1;
-
-
-opacity:0;
-
-
-animation:
-
-textShow 3s 5s forwards;
-
-
-}
-
-
-
-
-@keyframes textShow{
-
-
-to{
-
-opacity:1;
-
-}
-
-
-}
-
-
-
-
-
-
-/* 노이즈 */
-
-
-#app::after{
-
-
-content:"";
-
-
-position:absolute;
-
-inset:0;
-
-
-background:
-
-repeating-linear-gradient(
-
-0deg,
-
-transparent,
-
-transparent 3px,
-
-rgba(255,255,255,.03) 4px
-
-);
-
-
-pointer-events:none;
-
-
-}
 
 
 </style>
@@ -661,21 +376,31 @@ pointer-events:none;
 
 
 
-<!-- BOOT -->
+<!-- =================
+BOOT
+================= -->
 
 <div class="scene active" id="boot">
 
 
-<div class="system" id="systemText">
+<div class="bootText">
 
-CONNECTING WWW SYSTEM...
+WORLD WIDE WEB SYSTEM
 
 </div>
+
+
+<div class="percent" id="percent">
+
+00%
+
+</div>
+
 
 
 <div class="loading">
 
-<div class="loading-bar"></div>
+<span></span>
 
 </div>
 
@@ -689,20 +414,173 @@ CONNECTING WWW SYSTEM...
 
 
 
-<!-- ARCHIVE -->
+<!-- =================
+ROOM
+================= -->
 
-<div class="scene" id="archive">
+
+<div class="scene" id="room">
 
 
-<div class="archive-title">
+<div class="roomTitle">
 
-WWW ARCHIVE
+UNKNOWN ROOM
 
 </div>
 
 
 
-<div class="archive-sub">
+<div class="roomSub">
+
+FINAL DATA LOCATION
+
+</div>
+
+
+
+
+
+<div class="door" onclick="openDoor()">
+
+
+
+<div class="doorText">
+
+OPEN
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =================
+CORE ROOM
+================= -->
+
+
+<div class="scene" id="coreRoom">
+
+
+<div class="coreTitle">
+
+WWW FINAL CORE
+
+</div>
+
+
+
+<div class="core">
+
+
+<div class="coreCircle">
+
+
+◎
+
+
+</div>
+
+
+
+<p id="coreText">
+
+SYSTEM OFFLINE
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =================
+TIMELINE
+================= -->
+
+
+<div class="scene" id="timeline">
+
+
+<div class="coreTitle">
+
+WORLD TIMELINE
+
+</div>
+
+
+
+
+<div class="timelineBox">
+
+
+<div>
+
+2025
+
+<br>
+
+ERROR FOUND
+
+</div>
+
+
+
+<div>
+
+2026
+
+<br>
+
+WWW CREATED
+
+</div>
+
+
+
+<div>
+
+2030
+
+<br>
+
+MEMORY LOST
+
+</div>
+
+
+
+
+<div>
+
+2099
+
+<br>
 
 FINAL DATA FOUND
 
@@ -710,22 +588,6 @@ FINAL DATA FOUND
 
 
 
-
-
-
-<div class="core" onclick="openCore()">
-
-CORE
-
-</div>
-
-
-
-
-<div class="archive-sub" id="archiveMessage">
-
-WAITING...
-
 </div>
 
 
@@ -741,100 +603,229 @@ WAITING...
 
 
 
-<!-- MEMORY -->
+<style>
 
 
-<div class="scene" id="memory">
 
+/* CORE ROOM */
 
 
-<div class="memory-title">
+#coreRoom{
 
-MEMORY FRAGMENT
 
-</div>
+background:
 
 
+radial-gradient(
 
+circle,
 
-<div class="memory-box">
+#0f172a,
 
+#000
 
-<div class="memory-text" id="memoryText">
+);
 
 
-</div>
+}
 
 
 
-<button class="memory-button" onclick="openFinal()">
 
-OPEN LAST FILE
+.coreTitle{
 
-</button>
 
+font-size:45px;
 
 
-</div>
+letter-spacing:12px;
 
 
+}
 
 
-</div>
 
 
+.core{
 
 
+margin-top:70px;
 
 
+text-align:center;
 
 
+cursor:pointer;
 
-<!-- FINAL -->
 
+}
 
-<div class="scene" id="final">
 
 
-<div class="final-light"></div>
+.coreCircle{
 
 
-<div class="logo">
+width:250px;
 
-WWW
 
-</div>
+height:250px;
 
 
+border-radius:50%;
 
-<div class="album">
 
+border:
 
-DEBUT ALBUM
+2px solid #67e8f9;
 
-<br>
 
-THE FIRST PAGE
+display:flex;
 
 
-</div>
+align-items:center;
 
 
+justify-content:center;
 
-<div class="release">
 
 
-2026
+font-size:80px;
 
-<br><br>
 
-THE STORY BEGINS
 
+color:#67e8f9;
 
-</div>
 
 
-</div>
+box-shadow:
+
+
+0 0 80px #67e8f9,
+
+
+inset 0 0 50px #67e8f9;
+
+
+
+animation:
+
+
+rotate 8s linear infinite;
+
+
+}
+
+
+
+
+@keyframes rotate{
+
+
+100%{
+
+
+transform:rotate(360deg);
+
+
+}
+
+
+}
+
+
+
+
+
+
+#coreText{
+
+
+margin-top:40px;
+
+
+letter-spacing:5px;
+
+
+color:#cbd5e1;
+
+
+}
+
+
+
+
+
+
+/* TIMELINE */
+
+
+#timeline{
+
+
+background:
+
+
+linear-gradient(
+
+180deg,
+
+#020617,
+
+#111827
+
+);
+
+
+}
+
+
+
+
+
+.timelineBox{
+
+
+margin-top:50px;
+
+
+width:500px;
+
+
+}
+
+
+
+.timelineBox div{
+
+
+padding:25px;
+
+
+margin:15px;
+
+
+border-left:
+
+
+2px solid #67e8f9;
+
+
+background:
+
+
+rgba(255,255,255,.05);
+
+
+letter-spacing:4px;
+
+
+}
+
+
+
+
+
+</style>
 
 
 
@@ -847,36 +838,26 @@ THE STORY BEGINS
 <script>
 
 
-
-let core=false;
-
-
-
-let typingTimer;
+let doorOpened=false;
 
 
 
 
 
-
-
-
-function changeScene(id){
+function sceneChange(id){
 
 
 document
 
 .querySelectorAll(".scene")
 
-.forEach(scene=>{
+.forEach(s=>{
 
 
-scene.classList.remove("active");
+s.classList.remove("active");
 
 
 });
-
-
 
 
 document
@@ -896,83 +877,94 @@ document
 
 
 
-function typing(id,text,speed=80){
+// 부팅
+
+
+let p=0;
+
+
+let bootTimer=setInterval(()=>{
+
+
+p++;
+
+
+document.getElementById("percent")
+
+.innerHTML=
+
+p+"%";
 
 
 
-let element=
-
-document.getElementById(id);
+if(p>=100){
 
 
 
-element.innerHTML="";
-
-
-let i=0;
-
-
-
-clearInterval(typingTimer);
-
-
-
-typingTimer=setInterval(()=>{
-
-
-element.innerHTML+=text[i];
-
-
-i++;
-
-
-
-if(i>=text.length){
-
-
-clearInterval(typingTimer);
-
-
-}
-
-
-
-},speed);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// 시작 연출
+clearInterval(bootTimer);
 
 
 
 setTimeout(()=>{
 
 
-changeScene("archive");
+sceneChange("room");
+
+
+},1000);
 
 
 
-typing(
-
-"archiveMessage",
-
-"WE KNEW YOU WOULD ARRIVE."
-
-);
+}
 
 
 
-},5500);
+},60);
+
+
+
+
+
+
+
+
+
+// 문 열기
+
+
+
+function openDoor(){
+
+
+
+if(doorOpened)
+
+return;
+
+
+
+doorOpened=true;
+
+
+
+document.querySelector(".door")
+
+.classList.add("open");
+
+
+
+
+setTimeout(()=>{
+
+
+sceneChange("coreRoom");
+
+
+},1800);
+
+
+
+}
 
 
 
@@ -986,102 +978,998 @@ typing(
 
 
 
-function openCore(){
-
-
-
-if(core)
-
-return;
-
-
-
-core=true;
-
-
-
-
 document.querySelector(".core")
 
-.style.transform=
+.onclick=function(){
 
-"scale(1.4)";
 
+
+document.getElementById("coreText")
+
+.innerHTML=
+
+"DATA RESTORING...";
 
 
 
 setTimeout(()=>{
 
 
-changeScene("memory");
+document.getElementById("coreText")
+
+.innerHTML=
+
+"FINAL MEMORY RESTORED";
+
+
+setTimeout(()=>{
+
+
+sceneChange("timeline");
+
+
+},2500);
 
 
 
-typing(
-
-"memoryText",
-
-`
-
-MEMORY FILE FOUND.
-
-
-삭제된 기록.
-
-
-하지만 아직 존재한다.
-
-
-당신이 이곳에 도착할 것을
-
-이미 알고 있었다.
-
-`
-
-);
-
-
-
-},1500);
+},2000);
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-// 마지막 파일
-
-
-
-function openFinal(){
-
-
-
-changeScene("final");
-
-
-}
-
-
 
 
 
 
 
 </script>
+<style>
+
+
+/* =====================
+ALBUM DATA
+===================== */
+
+
+#albumScene{
+
+
+background:
+
+radial-gradient(
+
+circle,
+
+#312e81,
+
+#020617 70%
+
+);
+
+
+}
+
+
+
+
+.albumTitle{
+
+
+font-size:50px;
+
+
+letter-spacing:12px;
+
+
+}
+
+
+
+
+.albumCore{
+
+
+margin-top:50px;
+
+
+width:300px;
+
+
+height:300px;
+
+
+border-radius:20px;
+
+
+border:
+
+1px solid #67e8f9;
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.15),
+
+rgba(103,232,249,.05)
+
+);
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+text-align:center;
+
+
+font-size:35px;
+
+
+letter-spacing:8px;
+
+
+box-shadow:
+
+
+0 0 70px rgba(103,232,249,.5);
+
+
+transform-style:preserve-3d;
+
+
+animation:
+
+
+albumFloat 5s infinite;
+
+
+}
+
+
+
+@keyframes albumFloat{
+
+
+50%{
+
+
+transform:
+
+translateY(-20px)
+
+rotateY(15deg);
+
+
+}
+
+
+}
+
+
+
+
+
+
+.trackBox{
+
+
+margin-top:50px;
+
+
+display:flex;
+
+
+gap:20px;
+
+
+}
+
+
+
+.track{
+
+
+width:140px;
+
+
+height:60px;
+
+
+border:
+
+1px solid rgba(255,255,255,.4);
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+letter-spacing:2px;
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+opacity:0;
+
+
+animation:
+
+trackShow 1s forwards;
+
+
+}
+
+
+
+
+.track:nth-child(1){
+
+animation-delay:.5s;
+
+}
+
+.track:nth-child(2){
+
+animation-delay:1s;
+
+}
+
+.track:nth-child(3){
+
+animation-delay:1.5s;
+
+}
+
+.track:nth-child(4){
+
+animation-delay:2s;
+
+}
+
+.track:nth-child(5){
+
+animation-delay:2.5s;
+
+}
+
+
+
+
+@keyframes trackShow{
+
+
+to{
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* MEMBERS */
+
+
+.memberArea{
+
+
+margin-top:60px;
+
+
+display:flex;
+
+
+gap:35px;
+
+
+}
+
+
+
+.member{
+
+
+width:120px;
+
+
+height:160px;
+
+
+border:
+
+1px solid #67e8f9;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+position:relative;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.member:before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+inset:0;
+
+
+background:
+
+linear-gradient(
+
+transparent,
+
+rgba(103,232,249,.3),
+
+transparent
+
+);
+
+
+animation:
+
+scan 2s infinite;
+
+
+}
+
+
+
+
+
+@keyframes scan{
+
+
+from{
+
+transform:translateY(-200%);
+
+}
+
+
+
+to{
+
+transform:translateY(200%);
+
+}
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<!-- ALBUM SCENE -->
+
+
+<div class="scene" id="albumScene">
+
+
+
+<div class="albumTitle">
+
+DEBUT ALBUM DATA
+
+</div>
+
+
+
+
+<div class="albumCore">
+
+
+WORLD
+
+<br>
+
+WIDE
+
+<br>
+
+WEB
 
 
 </div>
 
 
-</body>
 
-</html>
+
+
+
+
+<div class="trackBox">
+
+
+<div class="track">
+
+01 BEGIN
+
+</div>
+
+
+<div class="track">
+
+02 SIGNAL
+
+</div>
+
+
+<div class="track">
+
+03 MEMORY
+
+</div>
+
+
+<div class="track">
+
+04 FUTURE
+
+</div>
+
+
+<div class="track">
+
+05 FIRST PAGE
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="memberArea">
+
+
+<div class="member">
+
+MEMBER 01
+
+</div>
+
+
+<div class="member">
+
+MEMBER 02
+
+</div>
+
+
+
+<div class="member">
+
+MEMBER 03
+
+</div>
+
+
+
+<div class="member">
+
+MEMBER 04
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+// 타임라인 이후 앨범 공개
+
+
+setTimeout(()=>{
+
+
+sceneChange("albumScene");
+
+
+},8000);
+
+
+
+</script>
+<style>
+
+
+/* =====================
+FINAL ENDING
+===================== */
+
+
+#ending{
+
+
+background:#000;
+
+
+}
+
+
+
+.finalFlash{
+
+
+position:absolute;
+
+
+width:120px;
+
+
+height:120px;
+
+
+border-radius:50%;
+
+
+background:white;
+
+
+box-shadow:
+
+
+0 0 200px white;
+
+
+animation:
+
+flashOpen 4s forwards;
+
+
+}
+
+
+
+@keyframes flashOpen{
+
+
+0%{
+
+transform:scale(0);
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:scale(25);
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+
+
+
+.finalLogo{
+
+
+font-size:150px;
+
+
+letter-spacing:40px;
+
+
+opacity:0;
+
+
+animation:
+
+finalLogo 3s 2s forwards;
+
+
+}
+
+
+
+
+
+@keyframes finalLogo{
+
+
+from{
+
+
+opacity:0;
+
+
+transform:
+
+translateY(80px);
+
+
+}
+
+
+
+to{
+
+
+opacity:1;
+
+
+transform:
+
+translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+.finalText{
+
+
+margin-top:40px;
+
+
+font-size:25px;
+
+
+letter-spacing:10px;
+
+
+text-align:center;
+
+
+opacity:0;
+
+
+animation:
+
+finalText 3s 4s forwards;
+
+
+}
+
+
+
+@keyframes finalText{
+
+
+to{
+
+
+opacity:1;
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+.secret{
+
+
+position:absolute;
+
+
+bottom:30px;
+
+
+right:40px;
+
+
+font-size:12px;
+
+
+color:#334155;
+
+
+cursor:pointer;
+
+
+letter-spacing:3px;
+
+
+}
+
+
+
+.secret:hover{
+
+
+color:white;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<!-- FINAL SCENE -->
+
+
+<div class="scene" id="ending">
+
+
+<div class="finalFlash"></div>
+
+
+
+
+<div class="finalLogo">
+
+WWW
+
+</div>
+
+
+
+
+
+<div class="finalText">
+
+
+DEBUT ALBUM
+
+<br><br>
+
+
+THE FIRST PAGE
+
+
+<br><br>
+
+
+2026
+
+<br>
+
+THE STORY BEGINS
+
+
+</div>
+
+
+
+
+
+
+
+<div class="secret" onclick="secretFile()">
+
+404
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+// 앨범 공개 후 엔딩 이동
+
+
+setTimeout(()=>{
+
+
+sceneChange("ending");
+
+
+},16000);
+
+
+
+
+
+
+
+
+
+function secretFile(){
+
+
+
+document.body.innerHTML+=`
+
+
+<div style="
+
+position:fixed;
+
+inset:0;
+
+background:#000;
+
+z-index:9999;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
+
+text-align:center;
+
+">
+
+
+
+<h1 style="
+
+font-size:60px;
+
+letter-spacing:15px;
+
+color:#67e8f9;
+
+">
+
+
+ERROR 404
+
+
+</h1>
+
+
+
+<p style="
+
+font-size:22px;
+
+line-height:2;
+
+">
+
+
+THIS ERROR WAS NOT A MISTAKE.
+
+
+<br><br>
+
+
+IT WAS THE BEGINNING.
+
+
+<br><br>
+
+
+WWW SYSTEM COMPLETE.
+
+
+</p>
+
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+</script>
